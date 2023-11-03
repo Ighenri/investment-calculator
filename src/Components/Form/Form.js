@@ -8,7 +8,7 @@ const initialUserInput = {
 }; // This was separated to its own variable since the reset function is to use the value again and  ot just the state
 // you can use camelCase or the string method for the variable name
 
-export default function Form() {
+export default function Form(props) {
   const [userInput, setUserInput] = useState(initialUserInput);
 
   const resetHandler = () => {
@@ -17,6 +17,7 @@ export default function Form() {
 
   const submitHandler = (event) => {
     event.preventDefault();
+    props.onCalculate(userInput);
   };
 
   const inputFormHandler = (input, value) => {
